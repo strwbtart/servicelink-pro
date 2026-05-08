@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Review</title>
+</head>
+<body>
+
+<h1>Submit Review</h1>
+
+<form method="POST">
+    <label>Select Job:</label><br>
+    <select name="job_id">
+        {% for job in jobs %}
+        <option value="{{ job[0] }}">{{ job[1] }} - {{ job[4] }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label>Rating 1-5:</label><br>
+    <input type="number" name="rating" min="1" max="5"><br><br>
+
+    <label>Comments:</label><br>
+    <input type="text" name="comments"><br><br>
+
+    <button type="submit">Submit Review</button>
+</form>
+
+<br>
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

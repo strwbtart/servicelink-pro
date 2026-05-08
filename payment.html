@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Payment</title>
+</head>
+<body>
+
+<h1>Record Payment</h1>
+
+<form method="POST">
+    <label>Select Job:</label><br>
+    <select name="job_id">
+        {% for job in jobs %}
+        <option value="{{ job[0] }}">{{ job[1] }} - {{ job[4] }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label>Payment Amount:</label><br>
+    <input type="number" step="0.01" name="amount"><br><br>
+
+    <button type="submit">Submit Payment</button>
+</form>
+
+<br>
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

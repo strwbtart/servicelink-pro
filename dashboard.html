@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Dashboard</title>
+</head>
+<body>
+
+<h1>ServiceLink Pro Dashboard</h1>
+
+<p>Logged in user system enabled.</p>
+<a href="/logout">Logout</a>
+
+<br><br>
+
+<a href="/create_job">Create New Job</a> |
+<a href="/assign">Assign Provider</a> |
+<a href="/payment">Record Payment</a> |
+<a href="/review">Submit Review</a>
+
+<h2>Job Requests</h2>
+<ul>
+{% for job in jobs %}
+    <li>ID {{ job[0] }}: {{ job[1] }} - {{ job[2] }} - {{ job[3] }} - Status: {{ job[4] }}</li>
+{% endfor %}
+</ul>
+
+<h2>Providers</h2>
+<ul>
+{% for provider in providers %}
+    <li>ID {{ provider[0] }}: {{ provider[1] }} - {{ provider[2] }} - Rating: {{ provider[5] }}</li>
+{% endfor %}
+</ul>
+
+<h2>Assignments</h2>
+<ul>
+{% for assignment in assignments %}
+    <li>{{ assignment[1] }} assigned to {{ assignment[2] }} for ${{ assignment[3] }}</li>
+{% endfor %}
+</ul>
+
+<h2>Payments</h2>
+<ul>
+{% for payment in payments %}
+    <li>Payment ID {{ payment[0] }} - Job ID {{ payment[1] }} - ${{ payment[2] }} - {{ payment[3] }}</li>
+{% endfor %}
+</ul>
+
+<h2>Reviews</h2>
+<ul>
+{% for review in reviews %}
+    <li>Review ID {{ review[0] }} - Job ID {{ review[1] }} - Rating: {{ review[2] }} - {{ review[3] }}</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
